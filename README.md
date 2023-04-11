@@ -1,7 +1,7 @@
-# DP-500-Blended-ASA-CI/CD
+# DP-500-aSA-CI/CD
 Bronze, Silver and Golden layers for NYC taxi data.
 Data Engineer project in Azure Synapse Analytics.
 
 |Bronze|Silver|Gold|
 |----|-----|-------|
-|Discovery row data |Transformed files|Aggregate queries| 
+|Row data discovery |Transformed joined tables|AggregateD queries| 
