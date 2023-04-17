@@ -1,0 +1,20 @@
+{
+	"name": "0212-Create silver trip",
+	"properties": {
+		"folder": {
+			"name": "LDW"
+		},
+		"content": {
+			"query": "USE nyc_taxi_ldw;\nGO\n\n\n--we need to run sp for each partition\n\nEXEC silver.usp_silver_trip_data_green '2020', '01'\nEXEC silver.usp_silver_trip_data_green '2020', '02'\nEXEC silver.usp_silver_trip_data_green '2020', '03'\nEXEC silver.usp_silver_trip_data_green '2020', '04'\nEXEC silver.usp_silver_trip_data_green '2020', '05'\nEXEC silver.usp_silver_trip_data_green '2020', '06'\nEXEC silver.usp_silver_trip_data_green '2020', '07'\nEXEC silver.usp_silver_trip_data_green '2020', '08'\nEXEC silver.usp_silver_trip_data_green '2020', '09'\nEXEC silver.usp_silver_trip_data_green '2020', '10'\nEXEC silver.usp_silver_trip_data_green '2020', '11'\nEXEC silver.usp_silver_trip_data_green '2020', '12'\nEXEC silver.usp_silver_trip_data_green '2021', '01'\nEXEC silver.usp_silver_trip_data_green '2021', '02'\nEXEC silver.usp_silver_trip_data_green '2021', '03'\nEXEC silver.usp_silver_trip_data_green '2021', '04'\nEXEC silver.usp_silver_trip_data_green '2021', '05'\nEXEC silver.usp_silver_trip_data_green '2021', '06'\n\n\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_ldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
