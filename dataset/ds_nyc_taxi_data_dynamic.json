@@ -1,0 +1,46 @@
+{
+	"name": "ds_nyc_taxi_data_dynamic",
+	"properties": {
+		"description": "with a parameter folder path",
+		"linkedServiceName": {
+			"referenceName": "SynapseLinkedS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_folder_path": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().p_folder_path",
+					"type": "Expression"
+				},
+				"fileSystem": "nyc-taxi-data"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "location_id",
+				"type": "INT_16"
+			},
+			{
+				"name": "borough",
+				"type": "UTF8"
+			},
+			{
+				"name": "zone",
+				"type": "UTF8"
+			},
+			{
+				"name": "service_zone",
+				"type": "UTF8"
+			}
+		]
+	}
+}
