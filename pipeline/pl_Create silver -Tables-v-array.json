@@ -14,7 +14,7 @@
 					},
 					"activities": [
 						{
-							"name": "Delete silver zone folder",
+							"name": "Delete silver folder",
 							"description": "",
 							"type": "Delete",
 							"dependsOn": [],
@@ -46,11 +46,11 @@
 							}
 						},
 						{
-							"name": "Create sliver taxi zone",
+							"name": "Create sliver table",
 							"type": "SqlServerStoredProcedure",
 							"dependsOn": [
 								{
-									"activity": "Delete silver zone folder",
+									"activity": "Delete silver folder",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -80,20 +80,12 @@
 			}
 		],
 		"variables": {
-			"v_folder_path": {
-				"type": "String",
-				"defaultValue": "silver/taxi_zone"
-			},
-			"v_usp_name": {
-				"type": "String",
-				"defaultValue": "silver.usp_silver_taxi_zone"
-			},
 			"v_folder_path_usp_name_array": {
 				"type": "Array",
 				"defaultValue": [
 					{
-						"folder_path": "silver/calender",
-						"usp_name": "silver.usp_silver_calender"
+						"folder_path": "silver/calendar",
+						"usp_name": "silver.usp_silver_calendar"
 					},
 					{
 						"folder_path": "silver/taxi_zone",
