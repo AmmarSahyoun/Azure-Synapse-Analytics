@@ -1,5 +1,5 @@
 {
-	"name": "Silver_taxi_Dataset",
+	"name": "ds_silver_taxi_zone",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SynapseLinkedS",

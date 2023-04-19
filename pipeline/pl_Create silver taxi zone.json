@@ -17,7 +17,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Silver_taxi_Dataset",
+						"referenceName": "ds_silver_taxi_zone",
 						"type": "DatasetReference"
 					},
 					"enableLogging": false,

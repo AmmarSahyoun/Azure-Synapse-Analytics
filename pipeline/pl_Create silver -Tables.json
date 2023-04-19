@@ -1,5 +1,5 @@
 {
-	"name": "pl_Create silver tables",
+	"name": "pl_Create silver -Tables",
 	"properties": {
 		"activities": [
 			{
@@ -35,7 +35,7 @@
 				}
 			},
 			{
-				"name": "Create silver taxi zone",
+				"name": "Create sliver taxi zone",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -68,7 +68,7 @@
 		"variables": {
 			"v_folder_path": {
 				"type": "String",
-				"defaultValue": "silver/taxi:_zone"
+				"defaultValue": "silver/taxi_zone"
 			},
 			"v_usp_name": {
 				"type": "String",
