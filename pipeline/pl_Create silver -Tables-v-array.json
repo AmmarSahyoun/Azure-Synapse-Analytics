@@ -102,10 +102,6 @@
 					{
 						"folder_path": "silver/rate_code",
 						"usp_name": "silver.usp_silver_rate_code"
-					},
-					{
-						"folder_path": "silver/payment_type",
-						"usp_name": "silver.usp_silver_payment_type"
 					}
 				]
 			}
