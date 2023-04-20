@@ -1,6 +1,7 @@
 {
 	"name": "SynapseLinkedS",
 	"properties": {
+		"description": "link to Storage account for delete purposes",
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
@@ -9,7 +10,6 @@
 		"connectVia": {
 			"referenceName": "AutoResolveIntegrationRuntime",
 			"type": "IntegrationRuntimeReference"
-		},
-		"description": "link to Storage account for delete purposes"
+		}
 	}
 }
