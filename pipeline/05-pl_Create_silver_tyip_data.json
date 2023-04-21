@@ -78,6 +78,49 @@
 									"enablePartitionDiscovery": false
 								}
 							}
+						},
+						{
+							"name": "Create partitions",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "delete partition",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[silver].[usp_silver_trip_data_green]",
+								"storedProcedureParameters": {
+									"month": {
+										"value": {
+											"value": "@item().month",
+											"type": "Expression"
+										},
+										"type": "String"
+									},
+									"year": {
+										"value": {
+											"value": "@item().year",
+											"type": "Expression"
+										},
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "ls_serverless_ldw",
+								"type": "LinkedServiceReference"
+							}
 						}
 					]
 				}
