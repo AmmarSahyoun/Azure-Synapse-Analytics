@@ -1,0 +1,35 @@
+{
+	"name": "05-pl_Create_silver_tyip_data",
+	"properties": {
+		"description": "transform data pipeline for parquet files",
+		"activities": [
+			{
+				"name": "Get partition year and month",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "ls_serverless_ldw",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": "use nyc_taxi_ldw;\n\nselect year, month from bronze.vw_trip_data_green_csv;"
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			}
+		],
+		"annotations": []
+	}
+}

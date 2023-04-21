@@ -1,0 +1,15 @@
+{
+	"name": "ls_to_ADLS2",
+	"properties": {
+		"description": "link service to storage account",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://ammardls.dfs.core.windows.net/"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
