@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "Spool",
+			"referenceName": "SparkP",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "335d9d09-25ea-48ee-9ab3-af9c1be586ed"
+				"spark.autotune.trackingId": "eac9a853-6848-42da-9a9d-f5def16fcaac"
 			}
 		},
 		"metadata": {
@@ -31,10 +31,10 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/347f720c-1604-455b-8d9e-be419cc2e652/resourceGroups/udem-synapse/providers/Microsoft.Synapse/workspaces/ammarws/bigDataPools/Spool",
-				"name": "Spool",
+				"id": "/subscriptions/347f720c-1604-455b-8d9e-be419cc2e652/resourceGroups/udem-synapse/providers/Microsoft.Synapse/workspaces/ammarws/bigDataPools/SparkP",
+				"name": "SparkP",
 				"type": "Spark",
-				"endpoint": "https://ammarws.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Spool",
+				"endpoint": "https://ammarws.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkP",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -96,7 +96,7 @@
 					"silver_folder_path = 'abfss://nyc-taxi-data@ammardls.dfs.core.windows.net/silver'\n",
 					"gold_folder_path = 'abfss://nyc-taxi-data@ammardls.dfs.core.windows.net/gold'"
 				],
-				"execution_count": 1
+				"execution_count": 3
 			},
 			{
 				"cell_type": "code",
@@ -112,10 +112,10 @@
 					}
 				},
 				"source": [
-					"#Set the spark config to be able to get the partitioned columns year and month as strings rather than integers\n",
+					"#Stop spark from infer data types to allow read the date column correctly.\n",
 					"spark.conf.set(\"spark.sql.sources.partitionColumnTypeInference.enabled\", \"false\")"
 				],
-				"execution_count": 2
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
@@ -140,9 +140,9 @@
 					"-- Create database to which we are going to write the data\n",
 					"\n",
 					"CREATE DATABASE IF NOT EXISTS nyc_taxi_ldw_spark\n",
-					"LOCATION 'abfss://nyc-taxi-data@synapsecoursedl.dfs.core.windows.net/gold';"
+					"LOCATION 'abfss://nyc-taxi-data@ammardls.dfs.core.windows.net/gold';"
 				],
-				"execution_count": 3
+				"execution_count": 5
 			},
 			{
 				"cell_type": "code",

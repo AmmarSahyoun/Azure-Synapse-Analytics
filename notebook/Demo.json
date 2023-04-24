@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "59f599ce-4b1c-4ab3-912b-0bb52f3a0673"
+				"spark.autotune.trackingId": "281cc0a4-cc6a-4cdd-9848-b8db92112886"
 			}
 		},
 		"metadata": {
@@ -33,17 +33,10 @@
 			"a365ComputeOptions": {
 				"id": "/subscriptions/347f720c-1604-455b-8d9e-be419cc2e652/resourceGroups/udem-synapse/providers/Microsoft.Synapse/workspaces/ammarws/bigDataPools/Spool",
 				"name": "Spool",
-				"type": "Spark",
-				"endpoint": "https://ammarws.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Spool",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				},
-				"sparkVersion": "3.3",
-				"nodeCount": 10,
-				"cores": 4,
-				"memory": 28,
-				"automaticScaleJobs": false
+				}
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -61,8 +54,8 @@
 					"# This is a demo notebook\r\n",
 					"## Markdown languague\r\n",
 					"### For practice\r\n",
-					"1. one\r\n",
-					"2. two\r\n",
+					"1. conf the cluster\r\n",
+					"2. construct a query\r\n",
 					"\r\n",
 					""
 				]
