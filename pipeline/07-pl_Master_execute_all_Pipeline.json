@@ -68,7 +68,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "06-pl_Create_Gold_trip_data_green",
+						"referenceName": "08-pl_Create_Gold_trip_data_green_agg",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
