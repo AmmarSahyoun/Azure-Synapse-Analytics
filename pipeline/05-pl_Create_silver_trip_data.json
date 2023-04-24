@@ -1,5 +1,5 @@
 {
-	"name": "05-pl_Create_silver_tyip_data",
+	"name": "05-pl_Create_silver_trip_data",
 	"properties": {
 		"description": "transform data pipeline for parquet files",
 		"activities": [

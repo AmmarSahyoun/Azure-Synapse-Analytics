@@ -5,6 +5,9 @@
 			"referenceName": "SynapseLinkedS",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "singles"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
