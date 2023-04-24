@@ -1,5 +1,5 @@
 {
-	"name": "05-pl_Create_Gold_trip_data_green",
+	"name": "06-pl_Create_Gold_trip_data_green",
 	"properties": {
 		"description": "transform data pipeline for parquet files",
 		"activities": [
