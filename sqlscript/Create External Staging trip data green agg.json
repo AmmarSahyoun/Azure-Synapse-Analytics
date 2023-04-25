@@ -1,0 +1,17 @@
+{
+	"name": "Create External Staging trip data green agg",
+	"properties": {
+		"content": {
+			"query": "CREATE SCHEMA staging\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'parquet_file_format') \n\tCREATE EXTERNAL FILE FORMAT [parquet_file_format] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'nyc_taxi_data_src') \n\tCREATE EXTERNAL DATA SOURCE [nyc_taxi_data_src] \n\tWITH (\n\t\tLOCATION = 'abfss://nyc-taxi-data@ammardls.dfs.core.windows.net' \n\t)\nGO\n\nCREATE EXTERNAL TABLE staging.ext_trip_data_green_agg (\n\t[pu_location_id] int,\n\t[do_location_id] int,\n\t[total_trip_count] bigint,\n\t[total_fare_amount] float\n\t)\n\tWITH (\n\tLOCATION = 'gold/trip_data_green_agg',\n\tDATA_SOURCE = [nyc_taxi_data_src],\n\tFILE_FORMAT = [parquet_file_format]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM staging.ext_trip_data_green_agg\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_dwh",
+				"poolName": "nyc_taxi_dwh"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
