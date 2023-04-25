@@ -5,7 +5,7 @@
 			"name": "dwh"
 		},
 		"content": {
-			"query": "CREATE SCHEMA dwh\nGO\n\nCREATE TABLE dwh.trip_data_green_agg\nWITH\n    (\n        CLUSTERED COLUMNSTORE INDEX,\n        DISTRIBUTION = ROUND_ROBIN\n    )\nAS SELECT * FROM staging.ext_trip_data_green_agg\nGO\n\n\nSELECT TOP 100 * FROM dwh.trip_data_green_agg\n",
+			"query": "-- Polybase CETAS statement to move data from External table in ADLS to a table in dedicated pool\n\nCREATE SCHEMA dwh\nGO\n\nCREATE TABLE dwh.trip_data_green_agg\nWITH\n    (\n        CLUSTERED COLUMNSTORE INDEX,\n        DISTRIBUTION = ROUND_ROBIN\n    )\nAS SELECT * FROM staging.ext_trip_data_green_agg\nGO\n\n\nSELECT TOP 100 * FROM dwh.trip_data_green_agg\n",
 			"metadata": {
 				"language": "sql"
 			},
