@@ -5,7 +5,7 @@
 			"name": "dwh"
 		},
 		"content": {
-			"query": "-- Create a table and copy data into it from contaier  \"RECOMMENDED\"\nCOPY INTO dwh.trip_data_green_agg_copy\n\nFROM 'https://ammardls.dfs.core.windows.net/nyc-taxi-data/gold/trip_data_green_agg'\nWITH\n(\n\tFILE_TYPE = 'PARQUET'\n\t,MAXERRORS = 0\n\t,COMPRESSION = 'snappy'\n\t,AUTO_CREATE_TABLE = 'ON'\n)\nGO\n\nSELECT TOP 100 * FROM dwh.trip_data_green_agg_copy\nGO",
+			"query": "-- Best practice to move data from ADLS directly to dedicated SQL Pool\n-- Create a table in dedicated pool database and copy data into it from ADLS contaier  \"RECOMMENDED\"\n-- No need for External objects like data_source, file_format or External table\n\nCOPY INTO dwh.trip_data_green_agg_copy\nFROM 'https://ammardls.dfs.core.windows.net/nyc-taxi-data/gold/trip_data_green_agg'\nWITH\n(\n\tFILE_TYPE = 'PARQUET'\n\t,MAXERRORS = 0\n\t,COMPRESSION = 'snappy'\n\t,AUTO_CREATE_TABLE = 'ON'\n)\nGO\n\nSELECT TOP 100 * FROM dwh.trip_data_green_agg_copy\nGO",
 			"metadata": {
 				"language": "sql"
 			},
