@@ -1,0 +1,11 @@
+{
+	"name": "Ammar_Workspace_Synapse",
+	"properties": {
+		"annotations": [],
+		"type": "PowerBIWorkspace",
+		"typeProperties": {
+			"workspaceID": "d4804ea3-d401-4932-8157-948fb4eb180b",
+			"tenantID": "76a2ae5a-9f00-4f6b-95ed-5d33d77c4d61"
+		}
+	}
+}

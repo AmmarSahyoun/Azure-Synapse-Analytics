@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "eac9a853-6848-42da-9a9d-f5def16fcaac"
+				"spark.autotune.trackingId": "8e6fe69b-b2f3-4f6b-a01e-2946adfd613d"
 			}
 		},
 		"metadata": {
@@ -161,7 +161,26 @@
 					"# Read the silver data to be processed. \n",
 					"trip_data_green_df = spark.read.parquet(f\"{silver_folder_path}/trip_data_green\") "
 				],
-				"execution_count": 4
+				"execution_count": 6
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"display(trip_data_green_df.limit(5))"
+				],
+				"execution_count": 15
 			},
 			{
 				"cell_type": "code",
@@ -187,7 +206,84 @@
 					"                        .agg(count(lit(1)).alias(\"total_trip_count\"),\n",
 					"                        round(sum(\"fare_amount\"), 2).alias(\"total_fare_amount\"))"
 				],
-				"execution_count": 5
+				"execution_count": 7
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"display(trip_data_green_agg_df.limit(5))"
+				],
+				"execution_count": 17
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"ms_comments": [
+						{
+							"threadId": "449c24d9-e9fa-489c-a9b2-acd7b01d66c0",
+							"text": "comment01",
+							"status": "active",
+							"user": {
+								"name": "Sahyoun, Ammar",
+								"idType": "aad"
+							},
+							"createdDateUTC": 1682326718670,
+							"modifiedDateUTC": 1682326718670,
+							"replies": [
+								{
+									"replyId": "7f71619c-2d08-4ba0-8a6e-3225b3829390",
+									"text": "comment02",
+									"user": {
+										"name": "Sahyoun, Ammar",
+										"idType": "aad"
+									},
+									"createdDateUTC": 1682326729499,
+									"modifiedDateUTC": 1682326729499
+								}
+							]
+						}
+					],
+					"ms_comment_ranges": {
+						"449c24d9-e9fa-489c-a9b2-acd7b01d66c0": {
+							"text": "trip_data_green_agg_df",
+							"start": {
+								"line": 3,
+								"column": 1
+							},
+							"end": {
+								"line": 3,
+								"column": 23
+							}
+						}
+					}
+				},
+				"source": [
+					"# Write the aggregated data to the gold table for consumption\n",
+					"\n",
+					"trip_data_green_agg_df.write.mode(\"overwrite\").partitionBy(\"year\", \"month\").format(\"parquet\").saveAsTable(\"nyc_taxi_ldw_spark.trip_data_green_agg\")"
+				],
+				"execution_count": 18
 			},
 			{
 				"cell_type": "code",
@@ -203,11 +299,9 @@
 					}
 				},
 				"source": [
-					"# Write the aggregated data to the gold table for consumption\n",
-					"\n",
-					"trip_data_green_agg_df.write.mode(\"overwrite\").partitionBy(\"year\", \"month\").format(\"parquet\").saveAsTable(\"nyc_taxi_ldw_spark.trip_data_green_agg\")"
+					""
 				],
-				"execution_count": 6
+				"execution_count": null
 			}
 		]
 	}
