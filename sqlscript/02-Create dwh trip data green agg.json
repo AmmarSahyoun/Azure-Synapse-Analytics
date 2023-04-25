@@ -1,0 +1,20 @@
+{
+	"name": "02-Create dwh trip data green agg",
+	"properties": {
+		"folder": {
+			"name": "dwh"
+		},
+		"content": {
+			"query": "CREATE SCHEMA dwh\nGO\n\nCREATE TABLE dwh.trip_data_green_agg\nWITH\n    (\n        CLUSTERED COLUMNSTORE INDEX,\n        DISTRIBUTION = ROUND_ROBIN\n    )\nAS SELECT * FROM staging.ext_trip_data_green_agg\nGO\n\n\nSELECT TOP 100 * FROM dwh.trip_data_green_agg\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "nyc_taxi_dwh",
+				"poolName": "nyc_taxi_dwh"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
