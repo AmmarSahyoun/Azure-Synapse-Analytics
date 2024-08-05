@@ -6,7 +6,7 @@ This repository contains the code and configuration for a data engineering proje
 ## Clone the repository: ```git clone https://github.com/AmmarSahyoun/Azure-Synapse-Analytics.git```
 
 ## Architecture
-![architecture diagram] (https://github.com/AmmarSahyoun/Azure-Synapse-Analytics/blob/main/pics/architecture-gr.png) 
+![architecture diagram](pics/architecture-gr.png) 
 
 
 ## Data Ingestion
