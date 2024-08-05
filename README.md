@@ -3,7 +3,13 @@
 ## Overview
 This repository contains the code and configuration for a data engineering project that ingests, transforms, and loads NYC taxi data into an **Azure Synapse Analytics data warehouse.** The data transformation process is organized into Bronze, Silver, and Golden layers for progressive refinement.
 
-## Clone the repository: ```git clone https://github.com/AmmarSahyoun/Azure-Synapse-Analytics.git```
+## Clone the repository: 
+```
+git clone https://github.com/AmmarSahyoun/Azure-Synapse-Analytics.git
+```
+|Bronze|Silver|Gold|
+|----|-----|-------|
+|Row data discovery |Transformed joined tables|AggregateD queries| 
 
 ## Architecture
 ![architecture diagram](pics/architecture-gr.png) 
@@ -33,9 +39,7 @@ This repository contains the code and configuration for a data engineering proje
 
 ## CI/CD Pipeline:
 * Setup a github repo with 3 branches that represent 3 layers: Bronze, Silver and Gold.
-<br />
-|Bronze|Silver|Gold|
-|----|-----|-------|
-|Row data discovery |Transformed joined tables|AggregateD queries| 
+
+
 
 
