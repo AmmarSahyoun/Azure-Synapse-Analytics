@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sqlOnDemand--dev-workspac",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/82178aa9-d391-441c-908c-0e8182d3e0e0/resourceGroups/grgrp/providers/Microsoft.Synapse/workspaces/dev-workspac",
+		"groupId": "sqlOnDemand",
+		"fqdns": [
+			"dev-workspac-ondemand.791d8f8f-a8cd-406f-b08d-21faf3ab498e.sql.azuresynapse.net"
+		]
+	}
+}

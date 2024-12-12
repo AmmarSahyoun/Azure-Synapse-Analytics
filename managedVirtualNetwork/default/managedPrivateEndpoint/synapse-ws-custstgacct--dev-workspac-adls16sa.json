@@ -1,0 +1,7 @@
+{
+	"name": "synapse-ws-custstgacct--dev-workspac-adls16sa",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/82178aa9-d391-441c-908c-0e8182d3e0e0/resourceGroups/grgrp/providers/Microsoft.Storage/storageAccounts/adls16sa",
+		"groupId": "dfs"
+	}
+}
